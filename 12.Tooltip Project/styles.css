@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 100px;
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 0.5rem));
+  background-color: #333;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+}
+
+[data-tooltip]:hover::after {
+  content: '';
+  position: absolute;
+  border: 0.5rem solid transparent;
+  border-top-color: #333;
+  transform: translate(-50%, -0.5rem);
+  left: 50%;
+}
